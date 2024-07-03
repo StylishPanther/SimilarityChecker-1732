@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cmath>
 using namespace std;
 
 class SimilarityChecker
@@ -9,16 +10,24 @@ public:
 	{
 
 	}
-	int lengthChecker(void)
+	double lengthChecker(void)
 	{
+		double ret;
 		if (first.length() == second.length())
-			return 60;
-		if ((max(first.length(), second.length()) /
+			ret = 60;
+		else if ((max(first.length(), second.length()) /
 			min(first.length(), second.length())) >= 2)
 		{
-			return 0;
+			ret = 0;
 		}
-		return 30;
+		else
+		{
+			double length_diff = first.length() > second.length() ?
+				first.length() - second.length() :
+				second.length() - first.length();
+			ret = (1 - (length_diff / min(first.length(), second.length()))) * 60;
+		}
+		return ret;
 	}
 private:
 	string first;
