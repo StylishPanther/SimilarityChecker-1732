@@ -1,6 +1,4 @@
 #include "pch.h"
-
-TEST(TestCaseName, TestName) {
-  EXPECT_EQ(1, 1);
-  EXPECT_TRUE(true);
-}
+#include "../Project1/checker.cpp"
+#include <string>
+using namespace std;
