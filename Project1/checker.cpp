@@ -2,6 +2,12 @@
 #include <string>
 #include <cmath>
 using namespace std;
+using namespace score;
+namespace score
+{
+	const int LENGTH_PERFECT_SCORE = 60;
+	const int LENGTH_ZERO_SCORE = 0;
+}
 
 class SimilarityChecker
 {
@@ -14,17 +20,20 @@ public:
 	{
 		double ret;
 		if (first.length() == second.length())
-			ret = 60;
-		else if ((max(first.length(), second.length()) /
-			min(first.length(), second.length())) >= 2)
 		{
-			ret = 0;
+			ret = LENGTH_PERFECT_SCORE;
+		}
+		else if ((max(first.length(), second.length()) /
+			      min(first.length(), second.length())) >= 2)
+		{
+			ret = LENGTH_ZERO_SCORE;
 		}
 		else
 		{
 			double length_diff = first.length() > second.length() ?
-				first.length() - second.length() :
-				second.length() - first.length();
+								 first.length() - second.length() :
+								 second.length() - first.length();
+
 			ret = (1 - (length_diff / min(first.length(), second.length()))) * 60;
 		}
 		return ret;
