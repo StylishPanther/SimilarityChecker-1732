@@ -6,11 +6,18 @@ using namespace std;
 class SimilarityCheckerFixture : public testing::Test
 {
 public:
-	SimilarityChecker check{"sd", "ds"};
+	
 
 };
 
 TEST_F(SimilarityCheckerFixture, length_check_test_1)
 {
+	SimilarityChecker check{ "sd", "ds" };
 	EXPECT_EQ(60, check.lengthChecker());
+}
+
+TEST_F(SimilarityCheckerFixture, length_check_test_2)
+{
+	SimilarityChecker check{ "sd", "dsdfsd" };
+	EXPECT_EQ(0, check.lengthChecker());
 }

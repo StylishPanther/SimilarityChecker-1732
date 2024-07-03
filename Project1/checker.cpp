@@ -4,7 +4,7 @@ using namespace std;
 class SimilarityChecker
 {
 public:
-	SimilarityChecker(string str1, string str2) : first{ first }, second{ second }
+	SimilarityChecker(string str1, string str2) : first{ str1 }, second{ str2 }
 	{
 
 	}
@@ -12,6 +12,11 @@ public:
 	{
 		if (first.length() == second.length())
 			return 60;
+		if ((max(first.length(), second.length()) /
+			min(first.length(), second.length())) >= 2)
+		{
+			return 0;
+		}
 	}
 private:
 	string first;
