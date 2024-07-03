@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 using namespace std;
 
@@ -17,6 +18,7 @@ public:
 		{
 			return 0;
 		}
+		return 30;
 	}
 private:
 	string first;
