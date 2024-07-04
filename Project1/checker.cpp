@@ -2,12 +2,13 @@
 #include <string>
 #include <cmath>
 using namespace std;
-using namespace score;
+
 namespace score
 {
 	const int LENGTH_PERFECT_SCORE = 60;
 	const int LENGTH_ZERO_SCORE = 0;
 }
+using namespace score;
 
 class SimilarityChecker
 {
