@@ -19,25 +19,23 @@ public:
 	}
 	int lengthChecker(void)
 	{
-		double ret;
+		int ret;
+		int longLength = max(first.length(), second.length());
+		int shortLength = min(first.length(), second.length());
 		if (first.length() == second.length())
 		{
 			ret = LENGTH_PERFECT_SCORE;
 		}
-		else if ((max(first.length(), second.length()) /
-			      min(first.length(), second.length())) >= 2)
+		else if ((longLength / shortLength) >= 2)
 		{
 			ret = LENGTH_ZERO_SCORE;
 		}
 		else
 		{
-			double length_diff = first.length() > second.length() ?
-								 first.length() - second.length() :
-								 second.length() - first.length();
-
-			ret = (1 - (length_diff / min(first.length(), second.length()))) * 60;
+			double length_diff = (double)(longLength - shortLength);
+			ret = ((1 - (length_diff / (double)shortLength)) * 60);
 		}
-		return (int)ret;
+		return ret;
 	}
 private:
 	string first;
