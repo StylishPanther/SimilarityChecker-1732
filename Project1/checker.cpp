@@ -17,7 +17,7 @@ public:
 	{
 
 	}
-	double lengthChecker(void)
+	int lengthChecker(void)
 	{
 		double ret;
 		if (first.length() == second.length())
@@ -37,7 +37,7 @@ public:
 
 			ret = (1 - (length_diff / min(first.length(), second.length()))) * 60;
 		}
-		return ret;
+		return (int)ret;
 	}
 private:
 	string first;
