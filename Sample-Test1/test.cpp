@@ -19,7 +19,7 @@ TEST_F(SimilarityCheckerFixture, length_check_test_1)
 TEST_F(SimilarityCheckerFixture, length_check_test_2)
 {
 	SimilarityChecker check{ "sd", "dsdfsd" };
-	EXPECT_EQ(0, check.lengthChecker());
+	EXPECT_EQ(LENGTH_ZERO_SCORE, check.lengthChecker());
 }
 
 TEST_F(SimilarityCheckerFixture, length_check_test_3)
