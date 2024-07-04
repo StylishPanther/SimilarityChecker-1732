@@ -27,3 +27,15 @@ TEST_F(SimilarityCheckerFixture, length_check_test_3)
 	SimilarityChecker check{ "sd", "dsd" };
 	EXPECT_EQ(30, check.lengthChecker());
 }
+
+TEST_F(SimilarityCheckerFixture, length_check_test_4)
+{
+	SimilarityChecker check{ "qwert", "ewer" };
+	EXPECT_EQ(45, check.lengthChecker());
+}
+
+TEST_F(SimilarityCheckerFixture, length_check_test_5)
+{
+	SimilarityChecker check{ "qwerty", "qewer" };
+	EXPECT_EQ(48, check.lengthChecker());
+}
